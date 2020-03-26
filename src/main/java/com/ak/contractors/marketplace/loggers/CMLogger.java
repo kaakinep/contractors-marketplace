@@ -12,6 +12,12 @@ import java.util.logging.Logger;
 @Component
 public class CMLogger {
 
+    /**
+     *
+     * This can be a common place to maintain logs to trace a transaction
+     *
+     */
+
     private final static Logger LOGGER = Logger.getLogger(CMLogger.class.getName());
 
     @Before("execution(* com.ak.contractors.marketplace.*.*.*(..))")

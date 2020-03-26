@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/bid")
 public class BidContoller {
 
+    /**
+     *
+     * Controller class for all the Contractor/Bid functionalities
+     *
+     */
+
     @Autowired
     BidService bidService;
 
@@ -33,6 +39,14 @@ public class BidContoller {
         return new ResponseEntity<Object>(bid, new HttpHeaders(), HttpStatus.OK);
     }
 
+
+    /**
+     *
+     * We can scheduled a job that runs once everyday end of the day, so all the pending bids can be finalized
+     *
+     * This will be an asynchronous API
+     *
+     */
     @RequestMapping(value = "/finalizePendingBids", method = RequestMethod.GET)
     public ResponseEntity<String> finalizeBid(){
         bidService.finalizePendingBids();

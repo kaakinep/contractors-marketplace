@@ -24,6 +24,12 @@ import java.util.List;
 @RequestMapping("/api/v1/project")
 public class ProjectController {
 
+    /**
+     *
+     * Controller class for all Project Related functionality
+     *
+     */
+
     Logger LOG = LoggerFactory.getLogger(ProjectController.class);
 
     @Autowired
@@ -39,6 +45,14 @@ public class ProjectController {
         return new ResponseEntity<String>(projectService.createProject(project) , new HttpHeaders(), HttpStatus.OK);
     }
 
+    /**
+     *
+     * Added a REQUESTER_TYPE header so that we can block Contractors from seeing Maximum Budget and Contractor Name if not finalized
+     *
+     * @param projectId
+     * @param requesterType
+     * @return
+     */
     @RequestMapping(value = "/getProject/{projectId}", method = RequestMethod.GET)
     public ResponseEntity<Object> getProject(@PathVariable int projectId, @RequestHeader("REQUESTER_TYPE") String requesterType){
 
