@@ -17,7 +17,7 @@
     <properties>
         <version.gson>2.8.6</version.gson>
         <version.sl4j.log4j>1.7.30</version.sl4j.log4j>
-        <version.h2>1.4.200</version.h2>
+        <version.h2>2.1.210</version.h2>
     </properties>
 
     <dependencies>
